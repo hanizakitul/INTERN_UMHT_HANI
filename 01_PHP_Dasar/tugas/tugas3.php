@@ -8,5 +8,21 @@ contoh :
 -->
 
 <?php
-  //
+function prima ($sumber) {
+  for ($i =2; $i <=sqrt($sumber); $i++){
+    if ($sumber % $i ==00){
+      return false;
+    }
+  }
+  return true;
+}
+
+$angka = 10; 
+
+if (prima($angka)){
+   echo "$angka adalah bilangan prima";
+} else {
+   echo "$angka bukan bilangan prima";
+}
+
 ?>

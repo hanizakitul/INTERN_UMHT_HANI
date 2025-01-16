@@ -9,5 +9,13 @@ Tugas 4
  -->
 
  <?php
-  //
+  function HitungVolume($a,$b,$t){
+    $alas= 0.5*$a*$b;
+    $volume= $alas*$t;
+
+    return $volume;
+  }
+
+  $volume=HitungVolume(20,5,4);
+  echo "Volume Prisma segitiga adalah $volume cm <br>";
 ?>
