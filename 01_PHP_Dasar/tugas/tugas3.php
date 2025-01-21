@@ -20,9 +20,9 @@ function prima ($sumber) {
 $angka = 10; 
 
 if (prima($angka)){
-   echo "$angka adalah bilangan prima";
+   echo "$angka adalah bilangan prisma";
 } else {
-   echo "$angka bukan bilangan prima";
+   echo "$angka bukan bilangan prisma";
 }
 
 ?>
