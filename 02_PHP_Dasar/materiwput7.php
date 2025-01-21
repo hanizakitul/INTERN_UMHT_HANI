@@ -55,3 +55,39 @@ $angka = [3,2,15,20,11,77,89];
 <?php for( $i = 0; $i <7; $i++ ) { ?>
    <div><?php echo $angka[$i]; ?></div> 
 <?php } ?>
+
+
+<?php foreach( $angka as $a ) { ?>
+    <div class="kotak" ><?php echo $a; ?></div>
+    <?php } ?> 
+
+
+<?php foreach( $angka as $a ) : ?>
+    <div class="kotak"><?= $a; ?></div>
+<?php endforeach; ?> 
+
+
+<?php
+$mahasiswa = [
+    ["Hani Zakiatul", "0078716380", "PPLG", "hanizakiatulaminah@gmail.com"]
+];
+
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Daftar Mahasiswa</title>
+</head>
+<body>
+
+<br>
+<h1>Daftar Mahasiswa</h1>
+
+<?php foreach( $mahasiswa as $mhs) : ?>
+<ul>
+    <li>Nama : <?= $mhs[0]; ?></li>
+    <li>NRP : <?= $mhs[1]; ?></li>
+    <li>Jurursan : <?= $mhs[2]; ?></li>
+    <li>Email : <?= $mhs[3]; ?></li>
+</ul>
+<?php endforeach; ?>
