@@ -10,7 +10,7 @@ Tugas 4
 
  <?php
   function HitungVolume($a,$b,$t){
-    $alas= 0.5*$a*$b;
+    $alas= 0.5*$a*$b;               
     $volume= $alas*$t;
 
     return $volume;
