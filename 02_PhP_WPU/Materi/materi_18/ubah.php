@@ -5,7 +5,7 @@ require 'function.php';
 $id = $_GET["id"];
 
 // query data mahasiswa berdasarkan id
-$siswa = query("SELECT * FROM siswa WHERE id = $id")[0];
+$siswi = query("SELECT * FROM siswa WHERE id = $id")[0];
 
 // cek apakah tombol submit sudah ditekan atau belum
 if( isset($_POST["submit"]) ) {
@@ -41,29 +41,29 @@ if( isset($_POST["submit"]) ) {
         <h1>Ubah data mahasiswa</h1>
 
         <form action="" method="post" enctype="multipart/form-data">
-        <input type="hidden" name="id" value="<?= $siswa["id"]; ?>">
-        <input type="hidden" name="gambar" value="<?= $siswa["gambar"]; ?>">
+        <input type="hidden" name="id" value="<?= $siswi["id"]; ?>">
+        <input type="hidden" name="gambar" value="<?= $siswi["gambar"]; ?>">
             <ul>
                 <li>
                     <label for="nrp">NRP : </label>
-                    <input type="text" name="nrp" id="nrp" required value="<?= $siswa["nrp"]; ?>">
+                    <input type="text" name="nrp" id="nrp" required value="<?= $siswi["nrp"]; ?>">
 
                 </li>
                 <li> 
                   <label for="nama">Nama : </label>
-                  <input type="text" name="nama" id="nama" value="<?= $siswa["nama"]; ?>">
+                  <input type="text" name="nama" id="nama" value="<?= $siswi["nama"]; ?>">
                 </li>
                 <li>
                     <label for="email">Email : </label>
-                    <input type="text" name="email" id="email" value="<?= $siswa["email"]; ?>">
+                    <input type="text" name="email" id="email" value="<?= $siswi["email"]; ?>">
                 </li>
                 <li>
                     <label for="jurusan">Jurusan : </label>
-                    <input type="text" name="jurusan" id="jurusan" value="<?= $siswa["jurusan"]; ?>">
+                    <input type="text" name="jurusan" id="jurusan" value="<?= $siswi["jurusan"]; ?>">
                 </li>
                 <li>
                     <label for="gambar">Gambar : </label> <br>
-                    <img src="img/<?= $siswa['gambar']; ?>"> <br>
+                    <img src="img/<?= $siswi['gambar']; ?>"> <br>
                     <input type="file" name="gambar" id="gambar" >
                 </li>
                 <li>
