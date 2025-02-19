@@ -5,16 +5,16 @@ class Produk {
            $penulis,
            $penerbit,
            $harga,
-           $jmlHalaman,
+           $jmlMenit,
            $waktuMain,
            $tipe;
     
-     public function __construct( $judul = "judul", $penulis = "penulis", $penerbit = "penerbit", $harga = 0, $jmlHalaman = 0, $waktuMain = 0, $tipe ) {
+     public function __construct( $judul = "judul", $penulis = "penulis", $penerbit = "penerbit", $harga = 0, $jmlMenit = 0, $waktuMain = 0, $tipe ) {
         $this->judul = $judul; 
         $this->penulis = $penulis;
         $this->penerbit = $penerbit;
         $this->harga = $harga;
-        $this->jmlHalaman = $jmlHalaman;
+        $this->jmlMenit = $jmlMenit;
         $this->waktuMain = $waktuMain;
         $this->tipe = $tipe;
      }      
@@ -27,7 +27,7 @@ class Produk {
 
         $str = "{$this->tipe} : {$this->judul} | {$this->getLabel()} (rp. {$this->harga})";
         if( $this->tipe == "Film" ) {
-            $str .= " - {$this->jmlHalaman} Halaman.";
+            $str .= " - {$this->jmlMenit} Menit.";
         } else if( $this->tipe == "Novel" ) {
             $str .= " ~ {$this->waktuMain} Jam.";
         }
@@ -44,8 +44,8 @@ class CetakInfoProduk {
     }
 }
 
-$produk1 = new Produk("Pengabdi Setan", "Joko Anwar", "Maktabah Darus-Sunnah", 45000);
-$produk2 = new Produk("Butterflies", "Ale", "CV Nexterday Group Ra", 265000);
+$produk1 = new Produk("Pengabdi Setan", "Joko Anwar", "Maktabah Darus-Sunnah", 45000, 96, 0, "Film");
+$produk2 = new Produk("Butterflies", "Ale", "CV Nexterday Group Ra", 265000, 269, 0, "Novel");
 
 echo $produk1->getInfoLengkap();
 echo "<br>";

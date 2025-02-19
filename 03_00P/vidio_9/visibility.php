@@ -3,15 +3,22 @@
 class Produk {
     public $judul,
            $penulis,
-           $penerbit,
-           $harga;
+           $penerbit;
+
+        protected $diskon = 0;
+
+        private $harga;
     
      public function __construct( $judul = "judul", $penulis = "penulis", $penerbit = "penerbit", $harga = 0) {
         $this->judul = $judul; 
         $this->penulis = $penulis;
         $this->penerbit = $penerbit;
         $this->harga = $harga;
-     }      
+     }
+     
+     public function getHarga() {
+        return $this->harga - ( $this->harga * $this->diskon / 100 );
+    }
 
     public function getLabel() {
         return "$this->penulis, $this->penerbit";
@@ -25,7 +32,7 @@ class Produk {
 }
 
 
-class Idol extends Produk {
+class Film extends Produk {
     public $jmlHalaman;
 
     public function __construct(  $judul = "judul", $penulis = "penulis", $penerbit = "penerbit", $harga = 0, $jmlHalaman = 0 ) {
@@ -34,7 +41,7 @@ class Idol extends Produk {
 
         $this->jmlHalaman = $jmlHalaman;
     }
-
+    
     public function getInfoProduk() {
         $str = "Film : " . parent::getInfoProduk() . " - {$this->jmlHalaman} Halaman.";
         return $str;
@@ -51,6 +58,10 @@ class Novel extends Produk {
         $this->waktuBaca = $waktuBaca;
     }
 
+    public function setDiskon( $diskon ) {
+        $this->diskon = $diskon; 
+     }
+
     public function getInfoProduk() {
         $str = "Novel : " . parent::getInfoProduk() . " - {$this->waktuBaca} Jam.";
         return $str;
@@ -65,11 +76,16 @@ class CetakInfoProduk {
     }
 }
 
-$produk1 = new Produk("Pengabdi Setan", "Joko Anwar", "Maktabah Darus-Sunnah", 45000);
-$produk2 = new Produk("Butterflies", "Ale", "CV Nexterday Group Ra", 265000);
 
+$produk1 = new Film("Pengabdi Setan", "Joko Anwar", "Maktabah Darus-Sunnah", 45000, 96);
+$produk2 = new Novel("Butterflies", "Ale", "CV Nexterday Group Ra", 265000, 264);
 
 echo $produk1->getInfoProduk();
 echo "<br>";
 echo $produk2->getInfoProduk();
+echo "<hr>";
+
+$produk2->setDiskon(50);
+echo $produk2->getHarga();
+
 ?>
